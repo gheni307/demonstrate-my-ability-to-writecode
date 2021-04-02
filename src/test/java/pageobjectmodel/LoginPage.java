@@ -10,6 +10,7 @@ public class LoginPage {
 
     WebDriver driver;
     TestBase testBase;
+
     @FindBy(id="username")
     WebElement usernameField;
     @FindBy(id="password")
