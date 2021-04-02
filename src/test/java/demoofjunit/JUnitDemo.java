@@ -22,7 +22,7 @@ public class JUnitDemo extends TestBase {
         dashboardPage = new DashboardPage(driver);
         customerPage = new CustomerPage(driver);
         dataHolder = new TestDataHolder();
-        loginPage.loginUser("testautomation","automation123!");
+        loginPage.loginUser("","");
     }
 
     @Test()
