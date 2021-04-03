@@ -4,13 +4,17 @@ public class TestDataHolder {
 
     private String title;
     private String email;
+    private  String productName;
+    private String productCode;
 
     public TestDataHolder() {
     }
 
-    public TestDataHolder(String title, String email) {
+    public TestDataHolder(String title, String email, String productName, String productCode) {
         this.title = title;
         this.email = email;
+        this.productName = productName;
+        this.productCode = productCode;
     }
 
     public String getTitle() {
@@ -27,5 +31,21 @@ public class TestDataHolder {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
     }
 }
