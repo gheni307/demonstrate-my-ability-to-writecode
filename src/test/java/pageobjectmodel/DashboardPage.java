@@ -17,7 +17,7 @@ public class DashboardPage {
     WebElement productsLink;
     @FindBy(linkText = "Categories")
     WebElement categoriesLink;
-    @FindBy(css = "i.fa.fa-dign-out")
+    @FindBy(css = "i.fa.fa-sign-out")
     WebElement logoutButton;
 
     public DashboardPage(WebDriver driver){
