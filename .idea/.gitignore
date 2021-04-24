@@ -36,14 +36,13 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 
 
-### OSX ###
+#### OSX ####
 .DS_Store
 .AppleDouble
 .LSOverride
 
 # Icon must ends with two \r.
 Icon
-
 
 # Thumbnails
 ._*
