@@ -20,7 +20,7 @@ public class testngDemo01 extends TestBase {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
         productPage = new ProductPage();
-        loginPage.loginUser("testautomation", "automation123!");
+        loginPage.loginUser("********", "*******");
     }
 
     @Test(dataProvider = "productInfo")

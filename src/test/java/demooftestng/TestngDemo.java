@@ -20,7 +20,7 @@ public class TestngDemo extends TestBase {
         dashboardPage = new DashboardPage();
         productPage = new ProductPage();
         testDataHolder = new TestDataHolder();
-        loginPage.loginUser("testautomation", "automation123!");
+        loginPage.loginUser("********", "*********");
 
     }
 
