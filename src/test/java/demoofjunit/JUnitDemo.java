@@ -3,10 +3,7 @@ package demoofjunit;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pageobjectmodel.CustomerPage;
-import pageobjectmodel.DashboardPage;
-import pageobjectmodel.LoginPage;
-import pageobjectmodel.TestDataHolder;
+import pageobjectmodel.*;
 import tool.TestBase;
 
 public class JUnitDemo extends TestBase {
@@ -17,10 +14,10 @@ public class JUnitDemo extends TestBase {
     static TestDataHolder dataHolder;
     @BeforeClass
     public static void setup(){
-        initialization();
-        loginPage = new LoginPage(driver);
-        dashboardPage = new DashboardPage(driver);
-        customerPage = new CustomerPage(driver);
+        initialization("url");
+        loginPage = new LoginPage();
+        dashboardPage = new DashboardPage();
+        customerPage = new CustomerPage();
         dataHolder = new TestDataHolder();
         loginPage.loginUser("","");
     }

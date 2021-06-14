@@ -1,15 +1,15 @@
 package pageobjectmodel;
 
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tool.TestBase;
+import tool.TestUtility;
 
-public class CustomerPage {
-    WebDriver driver;
-    TestBase testBase;
+public class CustomerPage extends TestBase {
+
+    TestUtility utility;
 
     @FindBy(xpath = "//a[text()=\"Add Customer\"]")
     WebElement addCustomerList;
@@ -30,46 +30,45 @@ public class CustomerPage {
     @FindBy(xpath = "//div[text()=\"Customer successfully deleted.\"]")
     WebElement deleteSuccessFullMassage;
 
-    public CustomerPage(WebDriver driver){
-        this.driver = driver;
+    public CustomerPage(){
         PageFactory.initElements(driver,this);
-        testBase = new TestBase(driver);
+        utility = new TestUtility();
     }
 
     public void addCustomers(String addTitle, String addFirstName, String addLastName, String addEmail){
-        testBase.waitForElementPresent(addCustomerList,10);
+        utility.waitForElementPresent(addCustomerList);
         addCustomerList.click();
 
-        testBase.waitForElementPresent(title,10);
+        utility.waitForElementPresent(title);
         title.sendKeys(addTitle);
 
-        testBase.waitForElementPresent(firstName,10);
+        utility.waitForElementPresent(firstName);
         firstName.sendKeys(addFirstName);
 
-        testBase.waitForElementPresent(lastName,10);
+        utility.waitForElementPresent(lastName);
         lastName.sendKeys(addLastName);
 
-        testBase.waitForElementPresent(email,10);
+        utility.waitForElementPresent(email);
         email.sendKeys(addEmail);
 
-        testBase.waitForElementPresent(submit,10);
+        utility.waitForElementPresent(submit);
         submit.click();
     }
 
     public void deleteCustomer(){
-        testBase.waitForElementPresent(deleteButton,10);
+        utility.waitForElementPresent(deleteButton);
         deleteButton.click();
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
 
     public boolean verifyAddNemCustomer(){
-        testBase.waitForElementPresent(successFullMessage,10);
+        utility.waitForElementPresent(successFullMessage);
         return successFullMessage.isDisplayed();
     }
 
     public boolean verifyDeletedCustomer(){
-        testBase.waitForElementPresent(deleteSuccessFullMassage,10);
+        utility.waitForElementPresent(deleteSuccessFullMassage);
         return deleteSuccessFullMassage.isDisplayed();
     }
 

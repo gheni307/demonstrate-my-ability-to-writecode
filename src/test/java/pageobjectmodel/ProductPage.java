@@ -6,11 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tool.TestBase;
+import tool.TestUtility;
 
-public class ProductPage {
+public class ProductPage extends TestBase {
 
-    WebDriver driver;
-    TestBase testBase;
+    TestUtility utility;
 
     @FindBy(linkText = "Add Product")
     WebElement addProductLink;
@@ -29,43 +29,42 @@ public class ProductPage {
     @FindBy(xpath = "//div[text()=\"Product(s) successfully deleted.\"]")
     WebElement deletedSuccessFullMessage;
 
-    public ProductPage(WebDriver driver){
-        this.driver = driver;
+    public ProductPage(){
         PageFactory.initElements(driver, this);
-        testBase = new TestBase(driver);
+        utility = new TestUtility();
     }
 
     public void addProduct(String productName, String productCode){
-        testBase.waitForElementPresent(addProductLink,10);
+        utility.waitForElementPresent(addProductLink);
         addProductLink.click();
 
-        testBase.waitForElementPresent(productStatusCheckBox, 10);
+        utility.waitForElementPresent(productStatusCheckBox);
         productStatusCheckBox.click();
 
-        testBase.waitForElementPresent(productNameField, 10);
+        utility.waitForElementPresent(productNameField);
         productNameField.sendKeys(productName);
 
-        testBase.waitForElementPresent(productCodeField,10);
+        utility.waitForElementPresent(productCodeField);
         productCodeField.sendKeys(productCode);
 
-        testBase.waitForElementPresent(saveButton, 10);
+        utility.waitForElementPresent(saveButton);
         saveButton.click();
     }
 
     public boolean verifyProduct(){
-        testBase.waitForElementPresent(createdSuccessFullMessage,10);
+        utility.waitForElementPresent(createdSuccessFullMessage);
         return createdSuccessFullMessage.isDisplayed();
     }
 
     public void deleteProduct(){
-        testBase.waitForElementPresent(deleteButton,10);
+        utility.waitForElementPresent(deleteButton);
         deleteButton.click();
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
 
     public boolean verifyDeletedProduct(){
-        testBase.waitForElementPresent(deletedSuccessFullMessage,10);
+        utility.waitForElementPresent(deletedSuccessFullMessage);
         return deletedSuccessFullMessage.isDisplayed();
     }
 

@@ -4,10 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageobjectmodel.CustomerPage;
-import pageobjectmodel.DashboardPage;
-import pageobjectmodel.LoginPage;
-import pageobjectmodel.TestDataHolder;
+import pageobjectmodel.*;
 import tool.ConnectionType;
 import tool.TestBase;
 import java.sql.Connection;
@@ -30,9 +27,9 @@ public class DatabaseUiTest extends TestBase {
     public void setUp(){
         connection = ConnectionManager.connectToDatabaseServer(dbUrl,port,username,
                 password,defaultSchema, ConnectionType.MYSQLSERVER);
-        initialization();
-        loginPage = new LoginPage(driver);
-        dashboardPage = new DashboardPage(driver);
+        initialization("url");
+        loginPage = new LoginPage();
+        dashboardPage = new DashboardPage();
         dataAccess = new DataAccess();
         loginPage.loginUser(username,password);
     }
@@ -40,7 +37,7 @@ public class DatabaseUiTest extends TestBase {
     @Test(description = "Admin should be added 3 customers")
     public void addCustomer(){
         dashboardPage.clickOnCustomerLink();
-        customerPage = new CustomerPage(driver);
+        customerPage = new CustomerPage();
         dataHolder = new TestDataHolder();
 
         for (int i = 1; i <= 3; i++){

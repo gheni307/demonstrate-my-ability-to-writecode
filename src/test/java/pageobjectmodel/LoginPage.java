@@ -1,15 +1,14 @@
 package pageobjectmodel;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tool.TestBase;
+import tool.TestUtility;
 
-public class LoginPage {
+public class LoginPage extends TestBase {
 
-    WebDriver driver;
-    TestBase testBase;
+    TestUtility utility;
 
     @FindBy(id="username")
     WebElement usernameField;
@@ -18,24 +17,23 @@ public class LoginPage {
     @FindBy(id="login")
     WebElement loginButton;
 
-    public LoginPage(WebDriver driver){
-        this.driver = driver;
+    public LoginPage(){
         PageFactory.initElements(driver,this);
-        testBase = new TestBase(driver);
+        utility = new TestUtility();
     }
 
     public void enterUserName(String userName){
-        testBase.waitForElementPresent(usernameField,10);
+        utility.waitForElementPresent(usernameField);
         usernameField.sendKeys(userName);
     }
 
     public void enterPassword(String password){
-        testBase.waitForElementPresent(passwordField,10);
+        utility.waitForElementPresent(passwordField);
         passwordField.sendKeys(password);
     }
 
     public void clickLoginButton(){
-        testBase.waitForElementPresent(loginButton,10);
+        utility.waitForElementPresent(loginButton);
         loginButton.click();
     }
 

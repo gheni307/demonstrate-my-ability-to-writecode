@@ -5,10 +5,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import pageobjectmodel.DashboardPage;
-import pageobjectmodel.LoginPage;
-import pageobjectmodel.ProductPage;
 import tool.TestBase;
+import pageobjectmodel.*;
 
 public class testngDemo01 extends TestBase {
 
@@ -18,11 +16,11 @@ public class testngDemo01 extends TestBase {
 
     @BeforeClass
     public void setup(){
-        initialization();
-        loginPage = new LoginPage(driver);
-        dashboardPage = new DashboardPage(driver);
-        productPage = new ProductPage(driver);
-        loginPage.loginUser("", "");
+        initialization("url");
+        loginPage = new LoginPage();
+        dashboardPage = new DashboardPage();
+        productPage = new ProductPage();
+        loginPage.loginUser("testautomation", "automation123!");
     }
 
     @Test(dataProvider = "productInfo")
@@ -39,13 +37,12 @@ public class testngDemo01 extends TestBase {
 
     @DataProvider
     public Object[][] productInfo(){
-        Object[][] productData = new Object[][]{
+
+        return new Object[][]{
                 {"netforman","123qwe"},
                 {"netforman1","234wer"},
                 {"netforman2","345ert"}
         };
-
-        return productData;
     }
 
 }

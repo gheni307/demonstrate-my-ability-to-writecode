@@ -5,11 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import tool.TestBase;
+import tool.TestUtility;
 
-public class DashboardPage {
+public class DashboardPage extends TestBase {
 
-    WebDriver driver;
-    TestBase testBase;
+    TestUtility utility;
 
     @FindBy(linkText = "Customer List")
     WebElement customerListLink;
@@ -20,34 +20,33 @@ public class DashboardPage {
     @FindBy(css = "i.fa.fa-sign-out")
     WebElement logoutButton;
 
-    public DashboardPage(WebDriver driver){
-        this.driver = driver;
+    public DashboardPage(){
         PageFactory.initElements(driver,this);
-        testBase = new TestBase(driver);
+        utility = new TestUtility();
     }
 
     public boolean verifyLogin(){
-        testBase.waitForElementPresent(logoutButton,10);
+        utility.waitForElementPresent(logoutButton);
         return logoutButton.isDisplayed();
     }
 
     public void clickOnCustomerLink(){
-        testBase.waitForElementPresent(customerListLink,10);
+        utility.waitForElementPresent(customerListLink);
         customerListLink.click();
     }
 
     public void clickOnProductsLink(){
-        testBase.waitForElementPresent(productsLink,10);
+        utility.waitForElementPresent(productsLink);
         productsLink.click();
     }
 
     public void clickOnCategoryLink(){
-        testBase.waitForElementPresent(categoriesLink,10);
+        utility.waitForElementPresent(categoriesLink);
         categoriesLink.click();
     }
 
     public void logout(){
-        testBase.waitForElementPresent(logoutButton,10);
+        utility.waitForElementPresent(logoutButton);
         logoutButton.click();
     }
 

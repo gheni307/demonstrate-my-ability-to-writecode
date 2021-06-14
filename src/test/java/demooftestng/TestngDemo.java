@@ -3,11 +3,8 @@ package demooftestng;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pageobjectmodel.DashboardPage;
-import pageobjectmodel.LoginPage;
-import pageobjectmodel.ProductPage;
-import pageobjectmodel.TestDataHolder;
 import tool.TestBase;
+import pageobjectmodel.*;
 
 public class TestngDemo extends TestBase {
 
@@ -18,12 +15,12 @@ public class TestngDemo extends TestBase {
 
     @BeforeClass
     public void setup(){
-        initialization();
-        loginPage = new LoginPage(driver);
-        dashboardPage = new DashboardPage(driver);
-        productPage = new ProductPage(driver);
+        initialization("url");
+        loginPage = new LoginPage();
+        dashboardPage = new DashboardPage();
+        productPage = new ProductPage();
         testDataHolder = new TestDataHolder();
-        loginPage.loginUser("", "");
+        loginPage.loginUser("testautomation", "automation123!");
 
     }
 
