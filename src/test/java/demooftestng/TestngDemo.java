@@ -6,12 +6,18 @@ import org.testng.annotations.Test;
 import tool.TestBase;
 import pageobjectmodel.*;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 public class TestngDemo extends TestBase {
 
     LoginPage loginPage;
     DashboardPage dashboardPage;
     ProductPage productPage;
     TestDataHolder testDataHolder;
+
 
     @BeforeClass
     public void setup(){
@@ -20,7 +26,7 @@ public class TestngDemo extends TestBase {
         dashboardPage = new DashboardPage();
         productPage = new ProductPage();
         testDataHolder = new TestDataHolder();
-        loginPage.loginUser("********", "*********");
+        loginPage.loginUser(prop.getProperty("username"), prop.getProperty("password"));
 
     }
 

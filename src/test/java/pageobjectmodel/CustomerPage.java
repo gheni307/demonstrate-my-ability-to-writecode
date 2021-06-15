@@ -29,6 +29,8 @@ public class CustomerPage extends TestBase {
     WebElement deleteButton;
     @FindBy(xpath = "//div[text()=\"Customer successfully deleted.\"]")
     WebElement deleteSuccessFullMassage;
+    @FindBy(css = ".pagination>span")
+    WebElement verifyCountOfTotalOfCustomers;
 
     public CustomerPage(){
         PageFactory.initElements(driver,this);
@@ -70,6 +72,12 @@ public class CustomerPage extends TestBase {
     public boolean verifyDeletedCustomer(){
         utility.waitForElementPresent(deleteSuccessFullMassage);
         return deleteSuccessFullMassage.isDisplayed();
+    }
+
+    public boolean verifyTotalCountOfCustomerList(){
+        utility.waitForElementPresent(verifyCountOfTotalOfCustomers);
+        System.out.println(verifyCountOfTotalOfCustomers.getText());
+        return verifyCountOfTotalOfCustomers.isDisplayed();
     }
 
 }

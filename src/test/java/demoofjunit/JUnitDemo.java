@@ -19,7 +19,7 @@ public class JUnitDemo extends TestBase {
         dashboardPage = new DashboardPage();
         customerPage = new CustomerPage();
         dataHolder = new TestDataHolder();
-        loginPage.loginUser("","");
+        loginPage.loginUser(prop.getProperty("username"), prop.getProperty("password"));
     }
 
     @Test()

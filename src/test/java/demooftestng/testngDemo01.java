@@ -20,7 +20,7 @@ public class testngDemo01 extends TestBase {
         loginPage = new LoginPage();
         dashboardPage = new DashboardPage();
         productPage = new ProductPage();
-        loginPage.loginUser("********", "*******");
+        loginPage.loginUser(prop.getProperty("username"), prop.getProperty("password"));
     }
 
     @Test(dataProvider = "productInfo")

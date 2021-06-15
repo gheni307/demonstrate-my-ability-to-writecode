@@ -149,7 +149,7 @@
                         <archive>
                             <manifest>
                                 <!-- Jar file entry point -->
-                                <mainClass>com.unitedcoder.datatypes.ConsoleInputDemo</mainClass>
+                                <mainClass>demooftestng.TestngDemo</mainClass>
                             </manifest>
                         </archive>
                         <descriptorRefs>

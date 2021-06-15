@@ -5,6 +5,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pageobjectmodel.*;
+import tool.ApplicationConfig;
 import tool.ConnectionType;
 import tool.TestBase;
 import java.sql.Connection;
@@ -17,11 +18,11 @@ public class DatabaseUiTest extends TestBase {
     DataAccess dataAccess;
     Connection connection = null;
     TestDataHolder dataHolder = null;
-    static String dbUrl = "148.72.106.125";
-    static String port = "3306";
-    static String username = "**********";
-    static String password = "**********";
-    static String defaultSchema = "i4296639_cc1";
+    static String dbUrl = ApplicationConfig.readFromConfigProperties("dbUrl");
+    static String port = ApplicationConfig.readFromConfigProperties("port");
+    static String username = ApplicationConfig.readFromConfigProperties("username");
+    static String password = ApplicationConfig.readFromConfigProperties("password");
+    static String defaultSchema = ApplicationConfig.readFromConfigProperties("defaultSchema");
 
     @BeforeClass
     public void setUp(){

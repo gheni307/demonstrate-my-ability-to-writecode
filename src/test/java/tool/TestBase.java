@@ -4,12 +4,27 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Arrays;
+import java.util.Properties;
 
 public class TestBase {
     public static WebDriver driver;
     public static String configFile="config.properties";
     public static String sysName=System.getProperty("os.name");
+
+    public static Properties prop=new Properties();
+    static {
+        String workingDirectory=System.getProperty("user.dir");
+        try {
+            prop.load(new FileInputStream(workingDirectory+ File.separator+"config.properties"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void initialization(String urlKey){
         if (driver==null){

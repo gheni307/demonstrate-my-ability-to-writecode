@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Magento Test Suite" verbose="1" >
+
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter"/>
+    </listeners>
+
+    <test name="Customer UI Test" >
+        <classes>
+            <class name="demooftestng.testngDemo01" />
+        </classes>
+    </test>
+
+    <test name="Role based admin UI Test" >
+        <classes>
+
+        </classes>
+    </test>
+
+</suite>
